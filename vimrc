@@ -26,12 +26,12 @@ let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:fencview_autodetect=0
 set rtp+=$GOROOT/misc/vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 显示相关  
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cul "高亮光标所在行
+set cul 
 set cuc
-set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
-set go=             " 不要图形按钮  
+set shortmess=atI    
+set go=             
 syntax enable
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
@@ -42,71 +42,71 @@ else
     colorscheme darkblue
 endif
 
-autocmd InsertEnter * se cul    " 用浅色高亮当前行  
-set ruler           " 显示标尺  
-set showcmd         " 输入的命令显示出来，看的清楚些  
-set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离  
-set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
-set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
-" 显示中文帮助
+autocmd InsertEnter * se cul     
+set ruler            
+set showcmd        
+set scrolloff=3       
+set laststatus=2     
+set nocompatible   
+
 if version >= 603
 	set helplang=cn
 	set encoding=utf-8
 endif
-" 自动缩进
+
 set autoindent
 set cindent
-" Tab键的宽度
+
 set tabstop=4
-" 统一缩进为4
+
 set softtabstop=4
 set shiftwidth=4
-" 使用空格代替制表符
+
 set expandtab
-" 在行和段开始处使用制表符
+
 set smarttab
-" 显示行号
+
 set number
-" 历史记录数
+
 set history=1000
-"搜索逐字符高亮
+
 set hlsearch
 set incsearch
-"语言设置
+
 set langmenu=zh_CN.UTF-8
 set helplang=cn
-" 总是显示状态行
+
 set cmdheight=2
-" 侦测文件类型
+
 filetype on
-" 载入文件类型插件
+
 filetype plugin on
-" 为特定文件类型载入相关缩进文件
+
 filetype indent on
-" 保存全局变量
+
 set viminfo+=!
-" 带有如下符号的单词不要被换行分割
+
 set iskeyword+=_,$,@,%,#,-
-" vim 复制到mac剪贴板
+
 vmap "+y :w !pbcopy<CR><CR>  
 nmap "+p :r !pbpaste<CR><CR> 
 
 au BufRead,BufNewFile *.{go}   set filetype=go
 au BufRead,BufNewFile *.{js}   set filetype=javascript
 
-"将tab替换为空格
+
 nmap tt :%s/\t/    /g<CR>
 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""新文件标题
+"""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"新建.c,.h,.sh,.java文件，自动插入文件头 
+
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetTitle()" 
-""定义函数SetTitle，自动插入文件头 
+
 func SetTitle() 
-	"如果文件类型为.sh文件 
+
 	if &filetype == 'sh' 
 		call setline(1,"#!/bin/bash") 
 		call setline(2, "# File Name: ".expand("%")) 
@@ -120,8 +120,8 @@ func SetTitle()
         call setline(2,"# coding=utf-8")
         "call append(line("."),"# coding=utf-8")
 		call append(line(".")+1, "# File Name: ".expand("%")) 
-		call append(line(".")+2, "# Author: Fang Pin") 
-		call append(line(".")+3, "# Mail: fangpin1993@hotmail.com") 
+		call append(line(".")+2, "# Author: Benjamin Peng") 
+		call append(line(".")+3, "# Mail: pbinbin@hotmail.com") 
 		call append(line(".")+4, "# Created Time: ".strftime("%c")) 
 	    call append(line(".")+5, "") 
 	    call append(line(".")+6, "") 
@@ -130,8 +130,8 @@ func SetTitle()
         call setline(1,"#!/usr/bin/env ruby")
         call append(line("."),"# encoding: utf-8")
 		call append(line("."), "# File Name: ".expand("%")) 
-		call append(line(".")+1, "# Author: Fang Pin") 
-		call append(line(".")+2, "# Mail: fangpin1993@hotmail.com") 
+		call append(line(".")+1, "# Author: Benjamin Peng") 
+		call append(line(".")+2, "# Mail: pbinbin@hotmail.com") 
 		call append(line(".")+3, "# Created Time: ".strftime("%c")) 
 	    call append(line(".")+4, "")
 	    call append(line(".")+5, "")
@@ -141,8 +141,8 @@ func SetTitle()
 	else 
 		call setline(1, "/*************************************************************************") 
 		call append(line("."), "	> File Name: ".expand("%")) 
-		call append(line(".")+1, "	> Author: Fang Pin") 
-		call append(line(".")+2, "	> Mail: fangpin1993@hotmail.com") 
+		call append(line(".")+1, "	> Author: Benjamin Peng") 
+		call append(line(".")+2, "	> Mail: pbinbin@hotmail.com") 
 		call append(line(".")+3, "	> Created Time: ".strftime("%c")) 
 		call append(line(".")+4, " ************************************************************************/") 
 		call append(line(".")+5, "")
@@ -165,13 +165,13 @@ func SetTitle()
 		call append(line(".")+6,"public class ".expand("%:r"))
 		call append(line(".")+7,"")
 	endif
-	"新建文件后，自动定位到文件末尾
+
 endfunc 
 autocmd BufNewFile * normal G
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"键盘命令
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " shift tab pages
 map <S-Left> :tabp<CR>
@@ -183,17 +183,17 @@ imap jj <ESC>
 imap JJ <ESC>
 set mouse=v
 nnoremap <leader>CC <Plug>CRV_CRefVimInvoke
-"去空行  
+
 nnoremap <F2> :g/^\s*$/d<CR> 
-"比较文件  
+
 nnoremap <C-F2> :vert diffsplit 
-"列出当前目录文件  
+ 
 map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
-"打开树状文件目录  
+  
 map <C-F3> \be  
 :autocmd BufRead,BufNewFile *.dot map <F5> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
-"C，C++ java hash python 按F5编译运行
+
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
@@ -220,7 +220,7 @@ func! CompileRunGcc()
         exec "!firefox %.html &"
 	endif
 endfunc
-"C,C++的调试
+
 map <F8> :call Rungdb()<CR>
 func! Rungdb()
 	exec "w"
@@ -236,11 +236,11 @@ func! Rungdb()
 endfunc
 
 
-"代码格式优化化
+
 
 map <F6> :call FormartSrc()<CR><CR>
 
-"定义FormartSrc()
+
 func FormartSrc()
     exec "w"
     if &filetype == 'c'
@@ -263,11 +263,11 @@ func FormartSrc()
     endif
     exec "e! %"
 endfunc
-"结束定义FormartSrc
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""实用设置
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("autocmd")
       autocmd BufReadPost *
@@ -275,76 +275,76 @@ if has("autocmd")
           \   exe "normal g`\"" |
           \ endif
 endif
-"当打开vim时自动打开NERDTree
+
 "autocmd vimenter *  NERDTree
-"当打开nerdtree后重定位到主窗口
+
 "autocmd VimEnter * wincmd p
-"当打开vim时自动打开Tagbar
+
 autocmd vimenter *  Tagbar
 
-" 只剩 NERDTree时自动关闭
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-"退出VIM时自动关闭tagbar
+
 autocmd bufenter * if (winnr("$") == 3 && exists("b:TagbarType") &&b:TagbarType == "primary")  | qa | endif
 
 
-" 设置当文件被改动时自动载入
+
 set autoread
-" quickfix模式
+
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
-"自动保存
+
 set autowrite
-set magic                   " 设置魔术
-set guioptions-=T           " 隐藏工具栏
-set guioptions-=m           " 隐藏菜单栏
-" 不要使用vi的键盘模式，而是vim自己的
+set magic                   
+set guioptions-=T           
+set guioptions-=m           
+
 set nocompatible
-" 去掉输入错误的提示声音
+
 set noeb
-" 在处理未保存或只读文件的时候，弹出确认
+
 set confirm
-"禁止生成临时文件
+
 set nobackup
 set noswapfile
-"搜索忽略大小写
+
 set ignorecase
 
 
 
 
 set linespace=0
-" 增强模式中的命令行自动完成操作
+
 set wildmenu
-" 使回格键（backspace）正常处理indent, eol, start等
+
 set backspace=2
-" 允许backspace和光标键跨越行边界
+
 set whichwrap+=<,>,h,l
-" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
+
 set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
-" 通过使用: commands命令，告诉我们文件的哪一行被改变过
+
 set report=0
-" 在被分割的窗口间显示空白，便于阅读
+
 set fillchars=vert:\ ,stl:\ ,stlnc:\
-" 高亮显示匹配的括号
+
 set showmatch
-" 匹配括号高亮的时间（单位是十分之一秒）
+
 set matchtime=1
-" 光标移动到buffer的顶部和底部时保持3行距离
+
 set scrolloff=3
 filetype plugin indent on 
-"打开文件类型检测, 加了这句才可以用智能补全
+
 set completeopt=longest,menu,preview
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-"设置tags  
+
 set tags+=~/.vim/cpptags
 "set tags+=tags  
 set autochdir 
 
 
-"python补全
+
 let g:pydiction_location = '~/.vim/after/complete-dict'
 let g:pydiction_menu_height = 20
 let g:miniBufExplMapWindowNavVim = 1
@@ -404,7 +404,7 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 "
-"ctrlp设置
+
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.png,*.jpg,*.gif     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.pyc,*.png,*.jpg,*.gif  " Windows
@@ -413,13 +413,13 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = '\v\.(exe|so|dll)$'
 let g:ctrlp_extensions = ['funky']
 
-"nerdtree 设置
+
 let NERDTreeIgnore=['\.pyc']
 let g:NERDTreeWinSize=20
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
 
-"tagbar 设置 
+
 nmap <F4> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 let g:tagbar_width = 30
