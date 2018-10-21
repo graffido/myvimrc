@@ -1,0 +1,36 @@
+=== What is this madness?
+
+Learn something new about Vim every day by jumping to random tags from help files!
+
+=== Amazing! How do I use it?
+
+Easy-peasy! Just run `:Random` for built-in tags. `:Random!` also parses the `runtimepath` and includes tags from external plugins.
+
+=== Typical workflow
+
+```vim
+:Random!
+@:
+@@
+@@
+@@
+```
+
+You get the idea.
+
+=== Author and Feedback
+
+If you like my plugins, please star them on Github. It's a great way of getting
+feedback. Same goes for issues reports or feature requests.
+
+*Names:* Marco Hinz, mhinz, mhi^, mhi
+
+*Mail:* `<mh.codebro@gmail.com>`
+
+*Twitter:* https://twitter.com/\_mhinz_[@\_mhinz_]
+
+_Thank you for flying mhi airlines. Get your Vim on!_
+
+=== License
+
+MIT license. Copyright (c) 2014 Marco Hinz.
