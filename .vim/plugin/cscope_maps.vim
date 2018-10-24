@@ -88,15 +88,15 @@ if has("cscope")
     " search will be displayed in the current window.  You can use CTRL-T to
     " go back to where you were before the search.  
     "
-
-    nmap <C-\>s :set splitbelow<cr>:scs find s <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
-    nmap <C-\>g :set splitbelow<cr>:scs find g <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
-    nmap <C-\>c :set splitbelow<cr>:scs find c <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
-    nmap <C-\>t :set splitbelow<cr>:scs find t <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
-    nmap <C-\>e :set splitbelow<cr>:scs find e <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
-    nmap <C-\>f :set splitbelow<cr>:scs find f <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
-    nmap <C-\>i :set splitbelow<cr>:scs find i <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
-    nmap <C-\>d :set splitbelow<cr>:scs find d <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
+    map <C-_> :ctags <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
+    nmap <C-\>f :cs find f <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
+    nmap <C-\>i :cs find i <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR><leader>co<cr>k:set nosplitbelow<cr>
 
 
     " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type
