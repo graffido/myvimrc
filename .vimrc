@@ -581,6 +581,8 @@ command! -nargs=1 NewCppClass call CreateCppClassFiles("<args>")
 
 "==========================================================================="
 " setting ctags 
+set tags=tags;
+set autochdir
 set tags+=~/.vim/tags/last_project_tags
 set tags+=~/.vim/tags/dtv_project_tags
 set tags+=~/.vim/tags/gstreamer_tags
