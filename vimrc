@@ -1,1 +1,0 @@
-/Users/bingo/.vim/vimrc
